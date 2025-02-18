@@ -38,6 +38,20 @@ This project is a **Student Performance Tracker** application designed to help i
 
 ### Phase 1 (Servlets + JDBC)
 
+- **Database Setup**  
+   - Install MySQL 8.0 (or use Docker).  
+   - Create a database: `CREATE DATABASE student_performance_db;`  
+   - Run our schema script: `mysql -u root -p student_performance_db < schema.sql`  
+   - Update your local config or environment variables with the DB credentials:  
+     ```properties
+     db.url=jdbc:mysql://localhost:3306/student_performance_db
+     db.user=root
+     db.password=YOUR_PASSWORD
+     ```
+     
+   - Drop mysql-connector-java-X.X.X.jar into WebContent/WEB-INF/lib.
+   For more details, see [DB_SETUP](DB_SETUP).
+
 - **Eclipse Dynamic Web Project** using Tomcat 9.  
 - JSP/HTML for the upload form and data listing.  
 - Direct JDBC for database operations (CRUD).  
