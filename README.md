@@ -40,11 +40,11 @@ This project is a **Student Performance Tracker** application designed to help i
 
 - **Database Setup**  
    - Install MySQL 8.0 (or use Docker).  
-   - Create a database: `CREATE DATABASE student_performance_db;`  
-   - Run our schema script: `mysql -u root -p student_performance_db < schema.sql`  
+   - Create a database: `CREATE DATABASE cb_perf_db;`  
+   - Run our schema script: `mysql -u root -p cb_perf_db < schema.sql`  
    - Update your local config or environment variables with the DB credentials:  
      ```properties
-     db.url=jdbc:mysql://localhost:3306/student_performance_db
+     db.url=jdbc:mysql://localhost:3306/cb_perf_db
      db.user=root
      db.password=YOUR_PASSWORD
      ```
