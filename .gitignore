@@ -1,0 +1,42 @@
+/.metadata/
+# ------------------
+# Eclipse and general IDE files
+# ------------------
+.classpath
+.project
+.settings/
+
+# Eclipse/Tomcat local deployment folders
+# (These can vary. "wtpwebapps" is sometimes used.)
+wtpwebapps/
+
+# ------------------
+# Java build artifacts
+# ------------------
+bin/
+target/
+*.war
+*.ear
+*.jar
+
+# ------------------
+# Logs and temp files
+# ------------------
+*.log
+*.tmp
+*.swp
+
+# ------------------
+# OS-specific files
+# ------------------
+# Mac
+.DS_Store
+# Windows
+Thumbs.db
+
+# ------------------
+# Sensitive or config files (if any)
+# ------------------
+# e.g. local DB config 
+*.properties
+*.env
