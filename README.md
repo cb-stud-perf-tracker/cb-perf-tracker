@@ -50,12 +50,12 @@ This project is a **Student Performance Tracker** application designed to help i
      ```
      
    - Drop mysql-connector-java-X.X.X.jar into WebContent/WEB-INF/lib.
-   For more details, see [DB_SETUP](DB_SETUP).
+   For more details, see [DB_SETUP](DB_SETUP.md).
 
 - **Eclipse Dynamic Web Project** using Tomcat 9.  
-- JSP/HTML for the upload form and data listing.  
-- Direct JDBC for database operations (CRUD).  
-- Ideal for understanding the fundamentals of file handling, request/response flow, and manual DB connectivity.
+   - JSP/HTML for the upload form and data listing.  
+   - Direct JDBC for database operations (CRUD).  
+   - Ideal for understanding the fundamentals of file handling, request/response flow, and manual DB connectivity.
 
 ### Phase 2 (Spring Boot + Angular)
 
