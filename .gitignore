@@ -2,9 +2,9 @@
 # ------------------
 # Eclipse and general IDE files
 # ------------------
-.classpath
-.project
-.settings/
+# .classpath
+# .project
+# .settings/
 
 # Eclipse/Tomcat local deployment folders
 # (These can vary. "wtpwebapps" is sometimes used.)
