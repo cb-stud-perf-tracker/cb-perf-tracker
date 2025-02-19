@@ -175,3 +175,104 @@ Below is a practical daily workflow for each team member to manage their tasks a
 - Alice merges the PR, deletes the branch, closes Issue #42, moves the card to “Done.”  
 
 With this process, every team member’s daily tasks are clearly traced, versioned, and documented in GitHub. You’ll be able to track progress easily, revert problematic changes if needed, and keep `main` stable.
+
+---
+
+## Git Process Steps (Example Workflow)
+
+### **Common Steps for Both Teams**
+
+1. **Clone the Repository** (if not already done):
+   ```bash
+   git clone https://github.com/YourOrg/student-performance-tracker.git
+   cd student-performance-tracker
+   ```
+2. **Navigate to the Project Folder**:
+   ```bash
+   cd phase1-servlets-jdbc
+   ```
+
+3. **Always Pull Latest Changes Before Starting Work**:
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
+
+---
+
+### **Team A – Backend Workflow**
+
+1. **Create a Feature Branch**:
+   ```bash
+   git checkout -b feature/teamA-hello-servlet
+   ```
+2. **Make Changes**:  
+   Add or update the `HelloWorldServlet.java` with the minimal code provided above.
+
+3. **Stage and Commit Changes**:
+   ```bash
+   git add src/com/example/HelloWorldServlet.java
+   git commit -m "Team A: Add minimal HelloWorldServlet"
+   ```
+
+4. **Push the Feature Branch to GitHub**:
+   ```bash
+   git push -u origin feature/teamA-hello-servlet
+   ```
+
+5. **Create a Pull Request** (using GitHub CLI for example):
+   ```bash
+   gh pr create --title "Add HelloWorldServlet" \
+     --body "Team A adds a minimal HelloWorldServlet to output 'Hello, world!'" \
+     --base main --head feature/teamA-hello-servlet
+   ```
+6. **Code Review & Merge**:  
+   Wait for a review (by you or a designated reviewer), resolve any conflicts if necessary, then merge the PR into `main`.
+
+---
+
+### **Team B – Frontend Workflow**
+
+1. **Create a Feature Branch**:
+   ```bash
+   git checkout -b feature/teamB-index-page
+   ```
+2. **Make Changes**:  
+   Add or update the `index.jsp` file with the minimal code provided above.
+
+3. **Stage and Commit Changes**:
+   ```bash
+   git add WebContent/index.jsp
+   git commit -m "Team B: Add index.jsp landing page"
+   ```
+
+4. **Push the Feature Branch to GitHub**:
+   ```bash
+   git push -u origin feature/teamB-index-page
+   ```
+
+5. **Create a Pull Request**:
+   ```bash
+   gh pr create --title "Add index.jsp landing page" \
+     --body "Team B adds a basic landing page for the frontend" \
+     --base main --head feature/teamB-index-page
+   ```
+6. **Code Review & Merge**:  
+   After review and any necessary changes, merge the PR into `main`.
+
+---
+
+## Coordination to Avoid Conflicts
+
+- **Frequent Integration:**  
+  Both teams should regularly pull changes from `main` into their feature branches:
+  ```bash
+  git checkout feature/<branch-name>
+  git pull origin main
+  ```
+- **Pull Request Reviews:**  
+  All changes merge via pull requests, ensuring that conflicts are detected early and resolved during code review.
+- **Communication:**  
+  Use daily stand-ups or a shared project board to coordinate which parts of the code each team is modifying.
+
+---
