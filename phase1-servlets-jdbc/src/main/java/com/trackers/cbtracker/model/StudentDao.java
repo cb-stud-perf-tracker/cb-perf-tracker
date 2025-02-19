@@ -12,7 +12,7 @@ public class StudentDao {
 	// TODO: update valid values accordingly
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cb_perf_db";
     private static final String JDBC_USER = "root";
-    private static final String JDBC_PASS = "Shiva@08";
+    private static final String JDBC_PASS = "Vishu@143";
 
     public StudentDao() {
         // No parameters needed; the strings are above
@@ -52,27 +52,43 @@ public class StudentDao {
  	}
 
  	// Method to get a Student based on given email
-    public Student getStudentByEmail(String email) {
+    public  Student getStudentByEmail(String email) {
  		Student student = null;
  		
  		// TODO: handle exceptions gracefully
+ 		try {
+ 			
+ 			
+ 			
  		
  			// TODO: Choose a good query for the operation
- 			
+ 			String query = "Select *from Student where email = ?";
  			// TODO: Prepare PreparedStatement instance and 
  			// 		 fill the parameters
+ 			Class.forName("com.mysql.cj.jdbc.Driver");
+ 			Connection con=DriverManager.getConnection(JDBC_URL,JDBC_USER,JDBC_PASS);
+ 			PreparedStatement st=con.prepareStatement(query);
+ 			st.setString(1, email);
  			
  			// TODO: Execute query on PreparedStatment instance
  			//		 and save ResultSet instance
- 			
+ 			ResultSet rs=st.executeQuery();
  			// TODO: Create Student instance from the ResultSet data
  			//		 if ResultSet has a record
- 		
+ 			if(rs.next()) {
+ 				student = new Student(rs.getInt("id"),rs.getString("email"),rs.getString("name"));
+ 				
+ 				}
+ 		}catch(ClassNotFoundException e) {
+ 			System.out.println("Driver not found error.");
+ 		} catch(SQLException e) {
+ 			System.out.println("DB Error: Check for any typo in SQL syntax.");
+ 		}
  		return student;
  	}
 
  	// Method to get all Students
- 	public List<Student> getAllStudents() {
+ 	/*public List<Student> getAllStudents() {
  		// TODO: Create an instance for storing list of Student instances
  		List<Student> students = ____ ;
  		Student student = null;
@@ -123,5 +139,5 @@ public class StudentDao {
  			
  		
  		return result; 
- 	}
+ 	}*/
 }
