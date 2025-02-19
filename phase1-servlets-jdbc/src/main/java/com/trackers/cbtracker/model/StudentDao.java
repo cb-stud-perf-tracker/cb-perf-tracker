@@ -1,5 +1,8 @@
 // TODO: Handle the package error
-package com.trackers.cbtracker;
+package com.trackers.cbtracker.model;
+
+import java.sql.DriverManager;
+import java.sql.*;
 
 // TODO: Import classes or interfaces required
 
@@ -7,9 +10,9 @@ public class StudentDao {
 
     // Hard-coded credentials (not secure, not flexible)
 	// TODO: update valid values accordingly
-    private static final String JDBC_URL = "...";
-    private static final String JDBC_USER = "...";
-    private static final String JDBC_PASS = "...";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/cb_perf_db";
+    private static final String JDBC_USER = "root";
+    private static final String JDBC_PASS = "Shiva@08";
 
     public StudentDao() {
         // No parameters needed; the strings are above
@@ -19,27 +22,30 @@ public class StudentDao {
     // TODO: create required entity class in current package
     //		 make sure the constructor parameters order matches
     //		 the order of columns that this entity class represents
- 	public String insertStudent(Student s) {
+ 	public static  String insertStudent(Student s) {
  		String result = "";
- 		
+ 		 
  		try {
- 			// TODO: Choose a good query for the operation
- 			String query = "...";
- 			// TODO: Prepare PreparedStatement instance 
  			
- 			// TODO: Populate PrepareStatement instance
- 			//		 with data from received Student instance
+ 			String query = "insert into Student values(?,?,?)";
+ 			Class.forName("com.mysql.cj.jdbc.Driver");
+ 			Connection con=DriverManager.getConnection(JDBC_URL,JDBC_USER,JDBC_PASS);
+ 			PreparedStatement st=con.prepareStatement(query); 
+ 			st.setInt(1, s.getId());
+ 			st.setString(2, s.getEmail());
+ 			st.setString(3, s.getName());
+ 			int rs=st.executeUpdate();
  			
- 			// TODO: Execute query on PreparedStatment instance
- 			//		 and save the result
  			
- 			// TODO: If the student record found,
- 			//		 save a success message to the result
- 			//		 save a failure message to the result, otherwise
+ 			if(rs!=0) {
+ 				System.out.println("Record inserted successfully");
+ 			}else {
+ 				System.out.println("Record insertion failed");
+ 			}
  			
- 		} catch(____) {
+ 		} catch(ClassNotFoundException e) {
  			System.out.println("Driver not found error.");
- 		} catch(____) {
+ 		} catch(SQLException e) {
  			System.out.println("DB Error: Check for any typo in SQL syntax.");
  		}
  		return result;
@@ -52,7 +58,7 @@ public class StudentDao {
  		// TODO: handle exceptions gracefully
  		
  			// TODO: Choose a good query for the operation
- 			String query = "...";
+ 			
  			// TODO: Prepare PreparedStatement instance and 
  			// 		 fill the parameters
  			
@@ -116,6 +122,6 @@ public class StudentDao {
  			//		 take care of query
  			
  		
- 		return result;
+ 		return result; 
  	}
 }
