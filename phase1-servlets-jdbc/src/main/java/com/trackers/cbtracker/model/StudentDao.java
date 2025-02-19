@@ -22,7 +22,7 @@ public class StudentDao {
     // TODO: create required entity class in current package
     //		 make sure the constructor parameters order matches
     //		 the order of columns that this entity class represents
- 	public static  String insertStudent(Student s) {
+ 	public  String insertStudent(Student s) {
  		String result = "";
  		 
  		try {
